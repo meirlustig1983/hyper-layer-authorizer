@@ -8,13 +8,14 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @Accessors(chain = true)
 @Document(collection = "merchants")
-public class DbMerchant {
+public class DbMerchant implements Serializable {
 
     @Id
     private ObjectId merchantId;

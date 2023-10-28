@@ -44,4 +44,10 @@ public class MerchantController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/{merchantId}")
+    public ResponseEntity<Void> deleteMerchantById(@PathVariable String merchantId) {
+        service.deleteById(merchantId);
+        return ResponseEntity.ok().build();
+    }
 }

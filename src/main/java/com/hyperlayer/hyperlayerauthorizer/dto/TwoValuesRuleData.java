@@ -2,8 +2,10 @@ package com.hyperlayer.hyperlayerauthorizer.dto;
 
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class TwoValuesRuleData extends RewardRuleData {
+public class TwoValuesRuleData extends RewardRuleData implements Serializable {
 
     private final String valueA;
     private final String valueB;

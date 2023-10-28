@@ -3,9 +3,11 @@ package com.hyperlayer.hyperlayerauthorizer.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
-public class RewardRuleData {
+public class RewardRuleData implements Serializable {
 
     private final String ruleId;
 

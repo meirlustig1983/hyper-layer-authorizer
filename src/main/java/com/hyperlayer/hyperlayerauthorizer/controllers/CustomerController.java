@@ -44,4 +44,10 @@ public class CustomerController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/{customerId}")
+    public ResponseEntity<Void> deleteCustomerById(@PathVariable String customerId) {
+        service.deleteById(customerId);
+        return ResponseEntity.ok().build();
+    }
 }

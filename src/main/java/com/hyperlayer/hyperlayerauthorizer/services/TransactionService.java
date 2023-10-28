@@ -38,4 +38,9 @@ public class TransactionService {
         log.info("get all transaction data. customerId: {}, merchantId: {}, size: {}", customerId, merchantId, data.size());
         return data;
     }
+
+    public void deleteAllByCustomerId(String customerId) {
+        log.info("delete transactions data. customerId: {}", customerId);
+        dataFacade.deleteTransactionsByCustomerId(new ObjectId(customerId));
+    }
 }

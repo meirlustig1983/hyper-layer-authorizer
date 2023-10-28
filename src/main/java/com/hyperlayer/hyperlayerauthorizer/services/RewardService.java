@@ -119,4 +119,9 @@ public class RewardService {
             return null;
         }
     }
+
+    public void deleteById(String rewardId) {
+        log.info("delete reward data. rewardId: {}", rewardId);
+        dataFacade.deleteRewardById(new ObjectId(rewardId));
+    }
 }

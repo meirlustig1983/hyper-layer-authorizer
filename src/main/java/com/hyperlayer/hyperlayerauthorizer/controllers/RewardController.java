@@ -87,4 +87,10 @@ public class RewardController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/{rewardId}")
+    public ResponseEntity<Void> deleteRewardById(@PathVariable String rewardId) {
+        service.deleteById(rewardId);
+        return ResponseEntity.ok().build();
+    }
 }

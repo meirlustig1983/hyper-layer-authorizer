@@ -37,11 +37,16 @@ public class MerchantService {
     }
 
     public Merchant save(Merchant merchant) {
-        DbMerchant dbCustomer = merchantMapper.mapToDbMerchant(merchant);
-        dbCustomer.setCreatedDate(LocalDateTime.now());
-        Optional<DbMerchant> result = dataFacade.saveMerchant(dbCustomer);
+        DbMerchant dbMerchant = merchantMapper.mapToDbMerchant(merchant);
+        dbMerchant.setCreatedDate(LocalDateTime.now());
+        Optional<DbMerchant> result = dataFacade.saveMerchant(dbMerchant);
         log.info("save new merchant data. merchantId: {}",
                 result.<Object>map(DbMerchant::getMerchantId).orElse(null));
         return result.map(merchantMapper::mapToMerchant).orElse(null);
+    }
+
+    public void deleteById(String merchantId) {
+        log.info("delete merchant data. merchantId: {}", merchantId);
+        dataFacade.deleteMerchantById(new ObjectId(merchantId));
     }
 }

@@ -10,10 +10,7 @@ import com.hyperlayer.hyperlayerauthorizer.dto.Merchant;
 import com.hyperlayer.hyperlayerauthorizer.dto.Reward;
 import com.jayway.jsonpath.JsonPath;
 import org.bson.types.ObjectId;
-import org.junit.jupiter.api.MethodOrderer;
-import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,8 +23,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -418,4 +414,41 @@ public class HyperLayerAuthorizerIT {
                 .andExpect(jsonPath("$.message").value("failed to achieve data with input arguments"))
                 .andExpect(jsonPath("$.statusCode").value(500));
     }
+
+    @Test
+    @Order(20)
+    void clean() throws Exception {
+
+        mockMvc.perform(delete("/api/transactions/customer/{customerId}", CUSTOMER_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(delete("/api/rewards/{rewardId}", FIRST_REWARD_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(delete("/api/rewards/{rewardId}", SECOND_REWARD_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(delete("/api/merchants/{merchantId}", FIRST_MERCHANT_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(delete("/api/merchants/{merchantId}", SECOND_MERCHANT_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isOk());
+
+        mockMvc.perform(delete("/api/customers/{customerId}", CUSTOMER_ID)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(""))
+                .andExpect(status().isOk());
+    }
+
+
 }

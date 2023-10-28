@@ -11,4 +11,5 @@ public interface TransactionRepository extends MongoRepository<DbTransaction, Ob
     List<DbTransaction> findAllByCustomerId(ObjectId customerId);
     List<DbTransaction> findAllByCustomerIdAndMerchantId(ObjectId merchantId, ObjectId customerId);
     List<DbTransaction> findAllByCustomerIdAndMerchantIdAndCreatedDateBetween(ObjectId merchantId, ObjectId customerId, LocalDateTime startDate, LocalDateTime endDate);
+    void deleteAllByCustomerId(ObjectId customerId);
 }

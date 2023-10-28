@@ -4,10 +4,7 @@ import com.hyperlayer.hyperlayerauthorizer.dto.Transaction;
 import com.hyperlayer.hyperlayerauthorizer.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,5 +33,11 @@ public class TransactionController {
     public ResponseEntity<List<Transaction>> getTransactionsByCustomerAndMerchant(@PathVariable String customerId,
                                                                                   @PathVariable String merchantId) {
         return ResponseEntity.ok(service.findAll(customerId, merchantId));
+    }
+
+    @DeleteMapping("/customer/{customerId}")
+    public ResponseEntity<Void> deleteTransactionsByCustomerId(@PathVariable String customerId) {
+        service.deleteAllByCustomerId(customerId);
+        return ResponseEntity.ok().build();
     }
 }

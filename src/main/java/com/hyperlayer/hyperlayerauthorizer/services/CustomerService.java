@@ -46,4 +46,9 @@ public class CustomerService {
                 result.<Object>map(DbCustomer::getCustomerId).orElse(null));
         return result.map(customerMapper::mapToCustomer).orElse(null);
     }
+
+    public void deleteById(String customerId) {
+        log.info("delete customer data. customerId: {}", customerId);
+        dataFacade.deleteCustomerById(new ObjectId(customerId));
+    }
 }
