@@ -18,10 +18,8 @@ public class DbMerchant {
 
     @Id
     private ObjectId merchantId;
-
     @NonNull
     private String merchantName;
-
     @NonNull
     private LocalDateTime createdDate;
 }

@@ -4,6 +4,8 @@ import lombok.NonNull;
 
 import java.time.LocalDateTime;
 
-public record Transaction(@NonNull String customerId, @NonNull String merchantId,
-                          @NonNull Double amount, @NonNull LocalDateTime createdDate) {
+public record Transaction(@NonNull String customerId,
+                          @NonNull String merchantId,
+                          @NonNull Double amount,
+                          @NonNull LocalDateTime createdDate) {
 }

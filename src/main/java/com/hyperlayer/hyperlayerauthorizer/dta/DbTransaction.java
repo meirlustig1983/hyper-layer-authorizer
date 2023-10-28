@@ -18,16 +18,12 @@ public class DbTransaction {
 
     @Id
     private ObjectId transactionId;
-
     @NonNull
     private ObjectId customerId;
-
     @NonNull
     private ObjectId merchantId;
-
     @NonNull
     private Double amount;
-
     @NonNull
     private LocalDateTime createdDate;
 }

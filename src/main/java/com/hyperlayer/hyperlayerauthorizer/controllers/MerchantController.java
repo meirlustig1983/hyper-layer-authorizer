@@ -39,7 +39,7 @@ public class MerchantController {
     public ResponseEntity<Merchant> createMerchant(@RequestBody Merchant merchant) {
         Merchant newMerchant = service.save(merchant);
         if (newMerchant != null) {
-            return ResponseEntity.created(ControllerHelper.getLocation()).body(newMerchant);
+            return ResponseEntity.created(ControllerHelper.getLocation("/api/merchants")).body(newMerchant);
         } else {
             return ResponseEntity.notFound().build();
         }

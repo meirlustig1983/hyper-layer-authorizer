@@ -69,16 +69,18 @@ public class ManagementService {
         Optional<DbMerchant> merchantResult = dataFacade.getMerchantById(merchantId);
 
         if (customerResult.isPresent() && rewardResult.isPresent() && merchantResult.isPresent()) {
-            if (service.authorize(customerResult.get(), rewardResult.get(), merchantResult.get(), request)) {
+            boolean isAuthorized = service.authorize(customerResult.get(), rewardResult.get(), merchantResult.get(), request);
+            if (isAuthorized) {
                 DbReward dbReward = rewardResult.get();
                 dbReward.setBalance(dbReward.getBalance() - amount);
                 dataFacade.saveReward(dbReward);
                 dataFacade.saveTransaction(new DbTransaction().setCustomerId(customerId).setMerchantId(merchantId).setAmount(amount).setCreatedDate(LocalDateTime.now()));
-                log.info("authorize request. customerId: {}, rewardId: {}, merchantId: {}, " + "amount: {}, date: {}, result: true", request.customerId(), request.rewardId(), request.merchantId(), request.amount(), request.date());
-                return true;
             }
+            log.info("authorize request. customerId: {}, rewardId: {}, merchantId: {}, " + "amount: {}, date: {}, result: {}",
+                    request.customerId(), request.rewardId(), request.merchantId(), request.amount(), request.date(), isAuthorized);
+            return isAuthorized;
+        } else {
+            throw new IllegalArgumentException("failed to achieve data with input arguments");
         }
-        log.info("authorize request. customerId: {}, rewardId: {}, merchantId: {}, " + "amount: {}, date: {}, result: false", request.customerId(), request.rewardId(), request.merchantId(), request.amount(), request.date());
-        return false;
     }
 }

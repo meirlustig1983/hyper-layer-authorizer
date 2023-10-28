@@ -16,7 +16,6 @@ public class DefaultExceptionHandler {
         log.error("Unhandled exception occurred", e);
         return createApiError(request, e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value());
     }
-
     private ApiError createApiError(HttpServletRequest request, String message, int statusCode) {
         return new ApiError(request.getRequestURI(), message, statusCode);
     }

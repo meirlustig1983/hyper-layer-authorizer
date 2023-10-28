@@ -42,7 +42,7 @@ public class RewardController {
     public ResponseEntity<Reward> createReward(@RequestBody Reward reward) {
         Reward newReward = service.save(reward);
         if (newReward != null) {
-            return ResponseEntity.created(ControllerHelper.getLocation()).body(newReward);
+            return ResponseEntity.created(ControllerHelper.getLocation("/api/rewards")).body(newReward);
         } else {
             return ResponseEntity.notFound().build();
         }

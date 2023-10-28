@@ -39,7 +39,7 @@ public class CustomerController {
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
         Customer newCustomer = service.save(customer);
         if (newCustomer != null) {
-            return ResponseEntity.created(ControllerHelper.getLocation()).body(newCustomer);
+            return ResponseEntity.created(ControllerHelper.getLocation("/api/customers")).body(newCustomer);
         } else {
             return ResponseEntity.notFound().build();
         }
