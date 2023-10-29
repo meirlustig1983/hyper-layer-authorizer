@@ -26,7 +26,7 @@ public class MerchantController {
     }
 
     @GetMapping("/{merchantId}")
-    public ResponseEntity<Merchant> getCustomerById(@PathVariable String merchantId) {
+    public ResponseEntity<Merchant> getMerchantById(@PathVariable String merchantId) {
         Merchant merchant = service.findById(merchantId);
         if (merchant != null) {
             return ResponseEntity.ok(merchant);
