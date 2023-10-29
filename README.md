@@ -139,3 +139,65 @@ To run the 'Hyper-Layer-Authorizer,' you must either install the required databa
     HTTP GET REQUEST ('/api/transactions/customer/{customerId}/merchant/{merchantId}')
 #### 2.3.4: deleteTransactionsByCustomerId
     HTTP DELETE REQUEST ('/api/transactions/customer/{customerId}')
+
+### 2.4: [Rewards API](src%2Fmain%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2Fcontrollers%2FRewardController.java)
+
+#### 2.4.1: getAllRewards
+    HTTP GET REQUEST ('/api/rewards')
+#### 2.4.2: getRewardById
+    HTTP GET REQUEST ('/api/rewards/{rewardId}')
+#### 2.4.3: createReward
+    HTTP POST REQUEST ('/api/rewards')
+    {
+        rewardId,
+        name,
+        balance,
+        rules
+    }
+#### 2.4.4: addTwoValuesRule
+    HTTP PATCH REQUEST ('/api/rewards/{rewardId}/rules/two-values')
+    {
+        classEvaluator,
+        valueA,
+        valueB
+    }
+#### 2.4.5: addListRule
+    HTTP PATCH REQUEST ('/api/rewards/{rewardId}/rules/list')
+    {
+        classEvaluator,
+        list
+    }
+#### 2.4.6: addRangeValuesRule
+    HTTP PATCH REQUEST ('/api/rewards/{rewardId}/rules/range')
+    {
+        classEvaluator,
+        start,
+        end
+    }
+#### 2.4.7: deleteRule
+    HTTP PATCH REQUEST ('/api/rewards/{rewardId}/rules/{ruleId}')
+#### 2.4.8: deleteRewardById
+    HTTP DELETE REQUEST ('/api/rewards//{rewardId}')
+
+### 2.4: [Management API](src%2Fmain%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2Fcontrollers%2FManagementController.java)
+
+#### 2.4.1: shareReward
+    HTTP POST REQUEST ('/api/management/share-reward')
+    {
+        customerId,
+        rewardId
+    }
+#### 2.4.2: authorize
+    HTTP POST REQUEST ('/api/management/authorize')
+    {
+        customerId,
+        rewardId,
+        merchantId,
+        amount,
+        date
+    }
+
+## 3: Integration Tests
+### 3.1: [HyperLayerAuthorizerIT.java](src%2Ftest%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2FHyperLayerAuthorizerIT.java)
+To gain a better understanding of how to use this service, it is highly recommended to review the provided examples and tests.
+
