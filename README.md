@@ -88,11 +88,11 @@ The 'Hyper-Layer-Authorizer' is an API-based solution that uses two different da
         private LocalDateTime createdDate;
     }
 
-### 1.2: Redis (As cache DB)
+### 1.2: Redis (Cache)
 
 ### 1.3: Installation
 
-To run the 'Hyper-Layer-Authorizer,' you must either install the required databases or install Docker and use the '[docker-compose.yml](docker-compose.yml)' file.  
+In order to run the 'Hyper-Layer-Authorizer,' you must either install the required databases locally or install Docker and use the '[docker-compose.yml](docker-compose.yml)' file.  
 
 ## 2: REST API
 
@@ -199,5 +199,5 @@ To run the 'Hyper-Layer-Authorizer,' you must either install the required databa
 
 ## 3: Integration Tests
 ### 3.1: [HyperLayerAuthorizerIT](src%2Ftest%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2FHyperLayerAuthorizerIT.java)
-To gain a better understanding of how to use this service, it is highly recommended to review the provided examples and tests.
+In order to gain a better understanding of how to use this service, it is highly recommended to review the provided examples and tests.
 
