@@ -1,5 +1,17 @@
 # HYPER LAYER AUTHORIZER
 
+## Technologies list
+
+* Java 17
+* Gradle 8.3
+* Spring Boot 3.1.5
+* Lombok
+* Docker
+* MongoDb
+* Redis
+* REST API
+* Junit
+
 ## 1: Data Bases
 
 The 'Hyper-Layer-Authorizer' is an API-based solution that uses two different databases.
