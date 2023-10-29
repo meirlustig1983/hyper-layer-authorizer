@@ -198,6 +198,6 @@ To run the 'Hyper-Layer-Authorizer,' you must either install the required databa
     }
 
 ## 3: Integration Tests
-### 3.1: [HyperLayerAuthorizerIT.java](src%2Ftest%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2FHyperLayerAuthorizerIT.java)
+### 3.1: [HyperLayerAuthorizerIT](src%2Ftest%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2FHyperLayerAuthorizerIT.java)
 To gain a better understanding of how to use this service, it is highly recommended to review the provided examples and tests.
 
