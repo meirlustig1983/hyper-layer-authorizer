@@ -96,7 +96,7 @@ To run the 'Hyper-Layer-Authorizer,' you must either install the required databa
 
 ## 2: REST API
 
-### 2.1: Customers API
+### 2.1: Customers API - [CustomerController.java](src%2Fmain%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2Fcontrollers%2FCustomerController.java)
 
 #### 2.1.1: getAllCustomers
     HTTP GET REQUEST ('/api/customers')
