@@ -7,9 +7,8 @@
 * Spring Boot 3.1.5
 * Lombok
 * Docker
-* MongoDb
+* MongoDB
 * Redis
-* REST API
 * Junit
 
 ## 1: Data Bases
