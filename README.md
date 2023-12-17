@@ -1,5 +1,33 @@
 # HYPER LAYER AUTHORIZER
 
+### 1: REST APIs Implementation:
+* Authorize Transaction Method:
+  * Accepts a transaction authorization request object as input.
+  * Evaluates customer rewards based on specified rules associated with the reward.
+  * Determines the applicability of the reward to the transaction using the customer ID provided in the transaction request object.
+* Share Reward with Another Customer:
+  * Enables the sharing of rewards between Customer A and Customer B.
+  * Makes the reward redeemable by either customer.
+
+### 2: Rule Implementation:
+* Implement various rules to condition the redeeming of a reward.
+* Examples of rules include checking the day of the week, time range, customer age, specific merchant involvement, transaction count with a merchant, and transaction amount.
+* 'Rules Data' examples:
+  * RangeValuesRuleData
+  * ListRuleData
+  * TwoValuesRuleData
+* 'Evaluators' examples:
+  * AllowedDaysEvaluator
+  * AllowedHoursEvaluator
+  * AllowedMerchantsEvaluator
+  * AmountLimitationForPeriodTimeEvaluator
+  * CustomerAgeEvaluator
+  * InsufficientFundsEvaluator
+  * RestrictedDaysEvaluator
+  * RestrictedMerchantsEvaluator
+  * RewardSharePermissionEvaluator
+  * TransactionsLimitationForPeriodTimeEvaluator
+
 ## Technologies list
 
 * Java 17
