@@ -28,6 +28,15 @@
   * RewardSharePermissionEvaluator
   * TransactionsLimitationForPeriodTimeEvaluator
 
+### 3: How to use it?
+* [Please see the examples at tests class](src%2Ftest%2Fjava%2Fcom%2Fhyperlayer%2Fhyperlayerauthorizer%2FHyperLayerAuthorizerIT.java)
+  * Create users
+  * Create merchants
+  * Create some 'Reward Cards'
+  * Add some rules to the reward
+  * Share the rewards with the users
+  * Send some 'authorize' requests
+
 ## Technologies list
 
 * Java 17
