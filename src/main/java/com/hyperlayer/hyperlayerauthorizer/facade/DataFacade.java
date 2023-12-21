@@ -44,7 +44,7 @@ public class DataFacade {
         return customerRepository.findById(customerId);
     }
 
-    @CachePut(value = "customers", key = "#result.customerId")
+    @CachePut(value = "customers", key = "#result.get().customerId")
     public Optional<DbCustomer> saveCustomer(DbCustomer dbCustomer) {
         DbCustomer newCustomer = customerRepository.save(dbCustomer);
         return customerRepository.findById(newCustomer.getCustomerId());
@@ -63,7 +63,7 @@ public class DataFacade {
         return merchantRepository.findById(merchantId);
     }
 
-    @CachePut(value = "merchants", key = "#result.merchantId")
+    @CachePut(value = "merchants", key = "#result.get().merchantId")
     public Optional<DbMerchant> saveMerchant(DbMerchant dbMerchant) {
         DbMerchant newMerchant = merchantRepository.save(dbMerchant);
         return merchantRepository.findById(newMerchant.getMerchantId());
@@ -82,7 +82,7 @@ public class DataFacade {
         return rewardRepository.findById(rewardId);
     }
 
-    @CachePut(value = "rewards", key = "#result.rewardId")
+    @CachePut(value = "rewards", key = "#result.get().rewardId")
     public Optional<DbReward> saveReward(DbReward dbReward) {
         DbReward newReward = rewardRepository.save(dbReward);
         return rewardRepository.findById(newReward.getRewardId());
